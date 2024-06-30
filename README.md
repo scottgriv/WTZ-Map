@@ -136,7 +136,7 @@ _Tile Providers Requiring API Key_
 
 > [!NOTE] 
 > Easily swap out your map provider by searching for the `Change Map Provider Here` comment in the code base.
-> Replace it with your map/tile provider or one of the providers mentioned above.
+> Replace the few lines of code below the comment with your map/tile provider or one of the providers mentioned above.
 > By default, I'm using **Esri** with the `World_Topo_Map` (topological) style.
 
 ## License
