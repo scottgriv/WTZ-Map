@@ -31,11 +31,11 @@ jobs:
         run: npm install
 
       - name: Static HTML export with Nuxt
-        run: npm run generate
         env:
           NODE_ENV: production
-          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
-          TIMEZONEDB_API_KEY: ${{ secrets.TIMEZONEDB_API_KEY }}
+          NUXT_ENV_OPENWEATHER_API_KEY: ${{ secrets.NUXT_ENV_OPENWEATHER_API_KEY }}
+          NUXT_ENV_TIMEZONEDB_API_KEY: ${{ secrets.NUXT_ENV_TIMEZONEDB_API_KEY }}
+        run: npm run generate
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

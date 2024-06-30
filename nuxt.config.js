@@ -61,7 +61,7 @@ export default {
     base: '/WTZ-Map/',  // Update this to your repository name
   },
   publicRuntimeConfig: {
-    openWeatherApiKey: process.env.OPENWEATHER_API_KEY,
-    timeZoneDbApiKey: process.env.TIMEZONEDB_API_KEY
+    openWeatherApiKey: process.env.NUXT_ENV_OPENWEATHER_API_KEY,
+    timeZoneDbApiKey: process.env.NUXT_ENV_TIMEZONEDB_API_KEY
   }
 };

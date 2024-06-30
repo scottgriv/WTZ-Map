@@ -56,8 +56,8 @@ import moment from "moment-timezone";
 
 export default defineComponent({
   setup() {
-    const openWeatherApiKey = process.env.OPENWEATHER_API_KEY;
-    const timeZoneDbApiKey = process.env.TIMEZONEDB_API_KEY;
+    const openWeatherApiKey = process.env.NUXT_ENV_OPENWEATHER_API_KEY;
+    const timeZoneDbApiKey = process.env.NUXT_ENV_TIMEZONEDB_API_KEY;
     const location = ref("");
     const mapElement = ref(null);
     const map = ref(null);
