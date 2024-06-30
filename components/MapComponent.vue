@@ -190,9 +190,20 @@ export default defineComponent({
       if (mapElement.value) {
         console.log("Initializing map");
         map.value = L.map(mapElement.value).setView([0, 0], 2);
+        
+        /* Change Map Provider Here */
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/{style}/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ',
+          style: 'World_Topo_Map' // Change this to other styles like 'NatGeo_World_Map', 'World_Street_Map', etc.
+        }).addTo(map.value);
+        /*...*/
+
+        /* Previous Map Provider */
+        /*
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           maxZoom: 18,
         }).addTo(map.value);
+        */
         console.log("Map initialized");
 
         timezoneLayer.value = L.timezones

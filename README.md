@@ -2,7 +2,7 @@
 
 <div align="center">
     <a href="https://github.com/scottgriv/WTZ-Map" target="_blank">
-        <img src="/docs/images/icon.png" width="200" height="200"/>
+        <img src="./docs/images/icon.png" width="200" height="200"/>
     </a>
 </div>
 <br>
@@ -13,7 +13,7 @@
     <a href="mailto:scott.grivner@gmail.com"><img src="https://img.shields.io/badge/gmail-contact_me-EA4335?style=for-the-badge&logo=gmail" alt="Email Badge" /></a>
     <a href="https://www.buymeacoffee.com/scottgriv"><img src="https://img.shields.io/badge/buy_me_a_coffee-support_me-FFDD00?style=for-the-badge&logo=buymeacoffee&color=FFDD00" alt="BuyMeACoffee Badge" /></a>
     <br>
-    <a href="https://github.com/scottgriv/WTZ-Map/actions/workflows/pages/deploy-nuxt-site-to-pages" target="_blank"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/scottgriv/WTZ-Map/pages/deploy-nuxt-site-to-pages?style=for-the-badge&logo=github&label=GitHub%20Pages"></a>
+    <a href="https://github.com/scottgriv/WTZ-Map/actions/workflows/nuxtjs.yml" target="_blank"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/scottgriv/WTZ-Map/nuxtjs.yml?style=for-the-badge&logo=github&label=GitHub%20Pages"></a>
     <a href="https://prgportfolio.com" target="_blank"><img src="https://img.shields.io/badge/PRG-Silver Project-C0C0C0?style=for-the-badge&logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMjYuMDAwMDAwcHQiIGhlaWdodD0iMzQuMDAwMDAwcHQiIHZpZXdCb3g9IjAgMCAyNi4wMDAwMDAgMzQuMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+Cgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwzNC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiNDMEMwQzAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0xMiAzMjggYy04IC04IC0xMiAtNTEgLTEyIC0xMzUgMCAtMTA5IDIgLTEyNSAxOSAtMTQwIDQyIC0zOCA0OAotNDIgNTkgLTMxIDcgNyAxNyA2IDMxIC0xIDEzIC03IDIxIC04IDIxIC0yIDAgNiAyOCAxMSA2MyAxMyBsNjIgMyAwIDE1MCAwCjE1MCAtMTE1IDMgYy04MSAyIC0xMTkgLTEgLTEyOCAtMTB6IG0xMDIgLTc0IGMtNiAtMzMgLTUgLTM2IDE3IC0zMiAxOCAyIDIzCjggMjEgMjUgLTMgMjQgMTUgNDAgMzAgMjUgMTQgLTE0IC0xNyAtNTkgLTQ4IC02NiAtMjAgLTUgLTIzIC0xMSAtMTggLTMyIDYKLTIxIDMgLTI1IC0xMSAtMjIgLTE2IDIgLTE4IDEzIC0xOCA2NiAxIDc3IDAgNzIgMTggNzIgMTMgMCAxNSAtNyA5IC0zNnoKbTExNiAtMTY5IGMwIC0yMyAtMyAtMjUgLTQ5IC0yNSAtNDAgMCAtNTAgMyAtNTQgMjAgLTMgMTQgLTE0IDIwIC0zMiAyMCAtMTgKMCAtMjkgLTYgLTMyIC0yMCAtNyAtMjUgLTIzIC0yNiAtMjMgLTIgMCAyOSA4IDMyIDEwMiAzMiA4NyAwIDg4IDAgODggLTI1eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="Silver" /></a>
 </p>
 
@@ -72,13 +72,9 @@ Before you begin, ensure you have met the following requirements:
 
     Create a `.env` file in the root directory of your project and add your API keys:
     ```plaintext
-    OPENWEATHER_API_KEY=your_openweathermap_api_key
-    TIMEZONEDB_API_KEY=your_timezonedb_api_key
+    NUXT_ENV_OPENWEATHER_API_KEY=your_openweathermap_api_key
+    NUXT_ENV_TIMEZONEDB_API_KEY=your_timezonedb_api_key
     ```
-
-    For deployment on GitHub Pages, add the API keys as secrets in your GitHub repository settings:
-    - `OPENWEATHER_API_KEY`
-    - `TIMEZONEDB_API_KEY`
 
 5. **Run the application locally:**
     ```bash
@@ -95,8 +91,12 @@ To deploy your Nuxt application to GitHub Pages, follow these steps:
     - Navigate to `Secrets and variables` > `Actions`.
     - Click on `New repository secret`.
     - Add the following secrets:
-        - `OPENWEATHER_API_KEY`
-        - `TIMEZONEDB_API_KEY`
+        - `NUXT_ENV_OPENWEATHER_API_KEY`
+        - `NUXT_ENV_TIMEZONEDB_API_KEY`
+
+> [!CAUTION]
+> Secrets must have the `NUXT_ENV` prefix to properly work.
+> See [this Nuxt.js documentation here](https://v2.nuxt.com/docs/configuration-glossary/configuration-env/#automatic-injection-of-environment-variables) for more information.
 
 ## Usage
 
@@ -121,6 +121,23 @@ To deploy your Nuxt application to GitHub Pages, follow these steps:
 - [Leaflet](https://leafletjs.com/)
 - [Axios](https://axios-http.com/)
 - [Leaflet.timezones](https://github.com/dj0001/Leaflet.timezones)
+
+**Maps**
+_Free Tile Providers (No API Key Required)_
+- [Esri](https://www.esri.com/en-us/capabilities/mapping/overview)
+- [OpenStreetMap](https://www.openstreetmap.org/)
+- [CartoDB](https://carto.com/)
+_Tile Providers Requiring API Key_
+- [Mapbox](https://www.mapbox.com/)
+- [Stadia x Stamen](https://stadiamaps.com/stamen)
+- [HERE Maps](https://www.here.com//)
+- [Thunderforest](https://www.thunderforest.com/)
+- [MapTiler](https://www.maptiler.com/)
+
+> [!NOTE] 
+> Easily swap out your map provider by searching for the `Change Map Provider Here` comment in the code base.
+> Replace it with your map/tile provider or one of the providers mentioned above.
+> By default, I'm using **Esri** with the `World_Topo_Map` (topological) style.
 
 ## License
 
