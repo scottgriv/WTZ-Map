@@ -61,7 +61,11 @@ export default {
     base: '/WTZ-Map/',  // Update this to your repository name
   },
   publicRuntimeConfig: {
-    openWeatherApiKey: process.env.OPENWEATHER_API_KEY,
-    timeZoneDbApiKey: process.env.TIMEZONEDB_API_KEY
+    openWeatherApiKey: process.env.OPENWEATHER_API_KEY ? true : false,
+    timeZoneDbApiKey: process.env.TIMEZONEDB_API_KEY ? true : false
   }
 };
+
+// Log if environment variables are set for debugging
+console.log('OPENWEATHER_API_KEY is set:', process.env.OPENWEATHER_API_KEY ? true : false);
+console.log('TIMEZONEDB_API_KEY is set:', process.env.TIMEZONEDB_API_KEY ? true : false);
