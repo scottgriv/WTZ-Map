@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: github-pages  # THIS WAS MISSING
+    environment: production  # THIS WAS MISSING
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
 
       - name: Static HTML export with Nuxt
         env:
-          NODE_ENV: github-pages
+          NODE_ENV: production
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           TIMEZONEDB_API_KEY: ${{ secrets.TIMEZONEDB_API_KEY }}
         run: npm run generate
