@@ -31,7 +31,6 @@ jobs:
 
       - name: Static HTML export with Nuxt
         env:
-          NODE_ENV: production
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           TIMEZONEDB_API_KEY: ${{ secrets.TIMEZONEDB_API_KEY }}
         run: npm run generate
