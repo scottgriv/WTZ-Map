@@ -151,7 +151,7 @@ export default defineComponent({
     const findTimezone = async (lat, lon) => {
       try {
         const response = await axios.get(
-          `http://api.timezonedb.com/v2.1/get-time-zone`,
+          `https://api.timezonedb.com/v2.1/get-time-zone`,
           {
             params: {
               key: timeZoneDbApiKey, // Use the environment variable directly
