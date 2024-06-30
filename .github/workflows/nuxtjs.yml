@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: production  # THIS WAS MISSING
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,11 +31,11 @@ jobs:
         run: npm install
 
       - name: Static HTML export with Nuxt
+        run: npm run generate
         env:
           NODE_ENV: production
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           TIMEZONEDB_API_KEY: ${{ secrets.TIMEZONEDB_API_KEY }}
-        run: npm run generate
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
