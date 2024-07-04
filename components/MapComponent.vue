@@ -39,8 +39,13 @@
       </div>
     </div>
     <footer>
-      <a href="https://github.com/scottgriv/WTZ-Map" target="_blank" rel="noreferrer">
-        Check out this Project on GitHub! <i class="fa-brands fa-github fa-bounce"></i>
+      <a
+        href="https://github.com/scottgriv/WTZ-Map"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Check out this Project on GitHub!
+        <i class="fa-brands fa-github fa-bounce"></i>
       </a>
     </footer>
   </div>
@@ -130,19 +135,22 @@ export default defineComponent({
           map.value.removeLayer(radarLayer.value);
         }
 
+        const timestamp = new Date().getTime();
+        const radarLayerUrl = `https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi?timestamp=${timestamp}`;
+
         radarLayer.value = L.tileLayer
-          .wms(
-            "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi",
-            {
-              layers: "nexrad-n0r-wmst",
-              format: "image/png",
-              transparent: true,
-              opacity: 0.5,
-              attribution: "Weather data © 2024 Iowa State University",
-            }
-          )
+          .wms(radarLayerUrl, {
+            layers: "nexrad-n0r", // Base Reflectivity
+            format: "image/png",
+            transparent: true,
+            opacity: 0.5,
+            attribution: "Weather data © 2024 Iowa State University",
+          })
+          .on("tileerror", function (error, tile) {
+            console.error("Tile load error:", error);
+          })
           .addTo(map.value);
-        console.log("Added radar layer to the map");
+        console.log("Added live radar layer to the map");
       } catch (error) {
         console.error("Error fetching time zone data:", error);
       }
@@ -190,12 +198,16 @@ export default defineComponent({
       if (mapElement.value) {
         console.log("Initializing map");
         map.value = L.map(mapElement.value).setView([0, 0], 2);
-        
+
         /* Change Map Provider Here */
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/{style}/MapServer/tile/{z}/{y}/{x}', {
-          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ',
-          style: 'World_Topo_Map' // Change this to other styles like 'NatGeo_World_Map', 'World_Street_Map', etc.
-        }).addTo(map.value);
+        L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/{style}/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ",
+            style: "World_Topo_Map", // Change this to other styles like 'NatGeo_World_Map', 'World_Street_Map', etc.
+          }
+        ).addTo(map.value);
         /*...*/
 
         /* Previous Map Provider */
@@ -259,7 +271,7 @@ body {
   text-align: center;
 }
 
-.header p{
+.header p {
   margin: 10px;
 }
 
