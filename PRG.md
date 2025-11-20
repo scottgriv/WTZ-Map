@@ -15,7 +15,7 @@ This file is used to connect this repository to the **PRG** project categorizati
 **Repository Tier:** Silver <br>
 **Technology:** Nuxt.js, GitHub Pages, APIs <br>
 **Category:** Web Application, Map, Weather, Time Zones <br>
-**Order:** 15 <br>
+**Order:** 16 <br>
 
 ## Parameters
 
